@@ -1,0 +1,203 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Phone, MessageCircle, MapPin, Truck, Flower2, Heart, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function LamayaFlowerShopWebsite() {
+  const bouquets = [
+    {
+      name: "Mother’s Day Collection",
+      detail: "Elegant arrangements made for Mom, available for pre-order.",
+      price: "Starts at ₱___",
+    },
+    {
+      name: "Fresh Mixed Bouquets",
+      detail: "Soft, colorful, and thoughtfully arranged for any occasion.",
+      price: "Starts at ₱___",
+    },
+    {
+      name: "Premium Arrangements",
+      detail: "Fuller designs with a more luxurious look and feel.",
+      price: "Starts at ₱___",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#fffaf7] text-stone-800">
+      <header className="sticky top-0 z-50 border-b border-stone-100 bg-[#fffaf7]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+          <div className="flex items-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100">
+              <Flower2 className="h-5 w-5 text-rose-500" />
+            </div>
+            <div>
+              <p className="text-lg font-semibold tracking-tight">Lamaya Flower Shop</p>
+              <p className="text-xs text-stone-500">Flowers for love, gratitude, and everyday moments</p>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-6 text-sm text-stone-600 md:flex">
+            <a href="#collection" className="hover:text-rose-500">Collection</a>
+            <a href="#how-to-order" className="hover:text-rose-500">How to Order</a>
+            <a href="#contact" className="hover:text-rose-500">Contact</a>
+          </nav>
+
+          <Button className="rounded-full bg-rose-500 px-5 text-white hover:bg-rose-600">
+            <a href="https://m.me/lamayaflowershop" target="_blank" rel="noreferrer">Order Now</a>
+          </Button>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden px-5 py-20 md:py-28">
+          <div className="absolute left-[-120px] top-10 h-72 w-72 rounded-full bg-rose-100 blur-3xl" />
+          <div className="absolute bottom-0 right-[-120px] h-80 w-80 rounded-full bg-amber-100 blur-3xl" />
+
+          <div className="relative mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-stone-600 shadow-sm">
+                <Heart className="h-4 w-4 text-rose-500" />
+                Mother’s Day pre-orders are open
+              </div>
+
+              <h1 className="max-w-xl text-4xl font-semibold leading-tight tracking-tight text-stone-900 md:text-6xl">
+                Send flowers that feel personal, beautiful, and heartfelt.
+              </h1>
+
+              <p className="mt-6 max-w-lg text-base leading-7 text-stone-600 md:text-lg">
+                Fresh bouquets and arrangements for Mother’s Day, birthdays, anniversaries, and everyday thoughtful surprises.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button className="rounded-full bg-rose-500 px-7 py-6 text-base text-white hover:bg-rose-600">
+                  <a href="https://m.me/lamayaflowershop" target="_blank" rel="noreferrer">Message to Order</a>
+                </Button>
+                <Button variant="outline" className="rounded-full border-stone-300 px-7 py-6 text-base">
+                  <a href="#collection">View Collection</a>
+                </Button>
+              </div>
+
+              <p className="mt-4 text-sm text-stone-500">
+                Early Bird Promo: 15% OFF until May 5. Free delivery for orders ₱5,000 and up.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="rounded-[2rem] bg-white p-4 shadow-xl shadow-rose-100">
+                <div className="flex aspect-[4/5] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 p-8 text-center">
+                  <div>
+                    <Flower2 className="mx-auto mb-5 h-20 w-20 text-rose-400" />
+                    <p className="text-2xl font-semibold text-stone-800">Place your bouquet photo here</p>
+                    <p className="mt-3 text-sm leading-6 text-stone-500">
+                      Replace this box with your best Mother’s Day bouquet image.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="collection" className="px-5 py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 text-center">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-rose-500">Our Collection</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Fresh flowers for Mom and every occasion</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-stone-600">
+                Choose from our ready-made designs or message us for available arrangements.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {bouquets.map((item) => (
+                <Card key={item.name} className="rounded-3xl border-stone-100 bg-white shadow-sm">
+                  <CardContent className="p-5">
+                    <div className="mb-5 flex aspect-square items-center justify-center rounded-2xl bg-rose-50">
+                      <Flower2 className="h-14 w-14 text-rose-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold">{item.name}</h3>
+                    <p className="mt-2 min-h-[50px] text-sm leading-6 text-stone-600">{item.detail}</p>
+                    <p className="mt-4 font-medium text-rose-600">{item.price}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="how-to-order" className="bg-white px-5 py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 text-center">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-rose-500">Simple Process</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">How to order</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              <Card className="rounded-3xl border-stone-100">
+                <CardContent className="p-6">
+                  <MessageCircle className="mb-4 h-8 w-8 text-rose-500" />
+                  <h3 className="font-semibold">1. Send us a message</h3>
+                  <p className="mt-2 text-sm leading-6 text-stone-600">Tell us your preferred bouquet, delivery date, and budget.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-3xl border-stone-100">
+                <CardContent className="p-6">
+                  <Clock className="mb-4 h-8 w-8 text-rose-500" />
+                  <h3 className="font-semibold">2. Confirm your order</h3>
+                  <p className="mt-2 text-sm leading-6 text-stone-600">We’ll confirm availability, details, and payment instructions.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-3xl border-stone-100">
+                <CardContent className="p-6">
+                  <Truck className="mb-4 h-8 w-8 text-rose-500" />
+                  <h3 className="font-semibold">3. Pick up or deliver</h3>
+                  <p className="mt-2 text-sm leading-6 text-stone-600">Orders may be picked up in-store or delivered through available courier options.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="px-5 py-16">
+          <div className="mx-auto max-w-4xl rounded-[2rem] bg-stone-900 p-8 text-center text-white md:p-12">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-rose-300">Order Today</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Make Mom’s day extra special</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-stone-300">
+              Message us to check available designs, prices, and delivery options.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button className="rounded-full bg-rose-500 px-7 py-6 text-base text-white hover:bg-rose-600">
+                <a href="https://m.me/lamayaflowershop" target="_blank" rel="noreferrer">Message on Facebook</a>
+              </Button>
+              <Button variant="outline" className="rounded-full border-white/30 bg-transparent px-7 py-6 text-base text-white hover:bg-white hover:text-stone-900">
+                <a href="tel:+639000000000">Call Us</a>
+              </Button>
+            </div>
+
+            <div className="mt-8 grid gap-3 text-sm text-stone-300 md:grid-cols-2">
+              <p className="flex items-center justify-center gap-2"><MapPin className="h-4 w-4" /> Kapitolyo, Pasig City</p>
+              <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4" /> +63 900 000 0000</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-stone-100 px-5 py-8 text-center text-sm text-stone-500">
+        <p>© 2026 Lamaya Flower Shop. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
